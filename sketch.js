@@ -1,13 +1,45 @@
 let img;
+let img_url = GetURLParameter('url');
+let jump = GetURLParameter('jump');
+//jump = 10;
 
-function setup() {
-   createCanvas(600,300);
-   img = loadImage('https://codropspz-tympanus.netdna-ssl.com/codrops/wp-content/uploads/2015/02/TextFill_image3.png');
-  
-   image(img, 0, 0);
-   image(img, 300, 0);
+function preload() {
+	img = loadImage(img_url);
 }
 
-function draw() {
-   
+function setup() {
+	createCanvas(img.width, img.height);
+  	background(0);
+
+  	jump = parseInt(jump, 10);
+
+  	img.loadPixels();
+  	
+  	fill(255);
+	textSize(jump);
+
+	for (let x = 0; x < img.width; x += jump) {
+    	for (let y = 0; y < img.height; y += jump) {
+
+    		let loc = (x + y * img.width) * 4;
+    		let imgP = img.pixels[loc];
+
+    		if(imgP != 0){
+    			text('1', x, y);
+    		}else{
+    			text('0', x, y);
+    		}
+    	}
+  	}
+}
+
+function GetURLParameter(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) {
+            return sParameterName[1];
+        }
+    }
 }
