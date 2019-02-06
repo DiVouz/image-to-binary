@@ -1,7 +1,7 @@
 let img;
 let img_url = GetURLParameter('url');
 let jump = GetURLParameter('jump');
-//jump = 10;
+let res = '';
 
 function preload() {
 	img = loadImage(img_url);
@@ -24,13 +24,22 @@ function setup() {
     		let loc = (x + y * img.width) * 4;
     		let imgP = img.pixels[loc];
 
-    		if(imgP != 0){
+    		if(imgP > 128){
     			text('1', x, y);
+    			res += '1';
     		}else{
     			text('0', x, y);
+    			res += '0';
     		}
     	}
+    	res += '\n';
   	}
+
+  	printText();
+}
+
+function printText() {
+	console.log(res);
 }
 
 function GetURLParameter(sParam) {
