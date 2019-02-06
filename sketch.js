@@ -1,7 +1,11 @@
 let img;
 let img_url = GetURLParameter('url');
+<<<<<<< HEAD
 let jump = GetURLParameter('jump');
 let res = '';
+=======
+let jump = GetURLParameter('jump')
+>>>>>>> 5aea8535d9ee7447c0edf8aa4e471b7e62e1101f
 
 function preload() {
 	img = loadImage(img_url);
