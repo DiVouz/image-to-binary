@@ -1,7 +1,6 @@
 let img;
 let img_url = GetURLParameter('url');
-let jump = GetURLParameter('jump');
-//jump = 10;
+let jump = GetURLParameter('jump')
 
 function preload() {
 	img = loadImage(img_url);
