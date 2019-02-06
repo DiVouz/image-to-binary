@@ -18,8 +18,8 @@ function setup() {
   	fill(255);
 	textSize(jump);
 
-	for (let x = 0; x < img.width; x += jump) {
-    	for (let y = 0; y < img.height; y += jump) {
+	for (let y = 0; y < img.width; y += jump) {
+    	for (let x = 0; x < img.height; x += jump) {
 
     		let loc = (x + y * img.width) * 4;
     		let imgP = img.pixels[loc];
