@@ -40,6 +40,10 @@ function setup() {
 
 function printText() {
 	console.log(res);
+	
+	let div;
+	div = createDiv(res);
+	div.class('small');
 }
 
 function GetURLParameter(sParam) {
